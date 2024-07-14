@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная станица</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+    <p><a href="/search">Поиск файлов</a>
+    <h1>Загрузите файлы</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="files" accept=".txt" multiple required>
+        <input type="submit" value="Загрузить">
+    </form>
+    <h2>Загруженные файлы</h2>
+    {% for cat, msg in get_flashed_messages(True)[:5] %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    <p><label>Количество файлов к индексации: {{ not_indexed_files_count }}</label>
+    <p><label>Количество проиндексированных файлов: {{ indexed_files_count }}</label>
+    <form method="POST" action="/index_files">
+        <input type="submit" value="Индекстировать файлы" class="clickable-btn">
+    </form>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

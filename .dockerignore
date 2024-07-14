@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+Dockerfile
+README.md
+uploads
+npa
+data
+txtai_doc
+venv

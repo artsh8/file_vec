@@ -1,0 +1,22 @@
+html {
+    font-family: "Helvetica", sans-serif;
+}
+
+.flash {
+    padding: 10px;
+    width: 400px;
+}
+
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+input[type="text"] {
+    width: 400px;
+}

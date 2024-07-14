@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+uploads/
+data/
+npa/
+txtai_doc/
+venv/
