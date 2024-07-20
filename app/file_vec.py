@@ -24,6 +24,7 @@ def index_file(embedding: str, file_name: str, file_data: str) -> None:
   doc = (file_name, file_data)
   embeddings.upsert((doc,))
   embeddings.save(embedding)
+  embeddings.close()
 
 def save_file(file_name: str, file_data: str) -> None:
   with sq.connect("data/file_names.db") as con:
@@ -85,7 +86,9 @@ def index_files():
 def search_embedding(embedding: str, keyword: str) -> list[tuple[str, float]]:
   embeddings = Embeddings()
   embeddings.load(embedding)
-  return embeddings.search(keyword, 3)
+  res = embeddings.search(keyword, 3)
+  embeddings.close()
+  return res
 
 def name_search(name: str) -> list[tuple[str, float]]:
   name = name + "%"
